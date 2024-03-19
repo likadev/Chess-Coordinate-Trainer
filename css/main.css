@@ -1,0 +1,215 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: #111;
+    color: #fff;
+    font-size: 2.5vh;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+    padding: 0.25em;
+    font-size: 2.5vh;
+}
+
+p {
+    color: white;
+    text-align: center;
+    font-size: 2.5vh;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: lightblue;
+    text-align: center;
+    font-size: 2.5vh;
+}
+
+a:visited {
+    color: lightblue;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+#header {
+    width: 100%;
+    background-color: darkslategrey;
+    color: lightgreen;
+    text-align: center;
+}
+
+#content {
+    max-width: 100vh; /* Ensure the chessboard doesn't exceed the viewport height */
+    flex: 1;
+    overflow: hidden;
+}
+
+#start {
+    height: 3.5vh;
+}
+
+.start-button {
+    font-size: 1.5vh;
+    border: 2px grey solid;
+    cursor: pointer;
+}
+
+.start-button:hover {
+    background-color: grey;
+}
+
+#footer {
+    color: #999;
+    width: 100%;
+    text-align: center;
+}
+
+#feedback {
+    font-size: 6vh;
+}
+
+#board {
+    border-collapse: collapse;
+    border: 5px solid #111; /* Optional: Add border to the chessboard */
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    table-layout: fixed;
+
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+#coordinate-to-guess {
+    color: white;
+    font-size: 5vh;
+    height: 6vh;
+    text-align: center;
+    vertical-align: center;
+}
+
+td {
+    width: calc(var(--content-height) / 8);
+    padding-bottom: calc(var(--content-height) / 8);
+    position: relative;
+}
+
+/* Apply background colors for light and dark squares */
+tr:nth-child(odd) td:nth-child(even), tr:nth-child(even) td:nth-child(odd) {
+    background-color: #B58863; /* Dark squares */
+}
+
+tr:nth-child(odd) td:nth-child(odd), tr:nth-child(even) td:nth-child(even) {
+    background-color: #F0D9B5; /* Light squares */
+}
+
+/* Highlight the cells on-hover with a color similar to the original. */
+tr:nth-child(odd) td:nth-child(even).highlight, tr:nth-child(even) td:nth-child(odd).highlight {
+    background-color: rgba(251, 209, 186, 0.7) !important;
+}
+
+tr:nth-child(odd) td:nth-child(odd).highlight, tr:nth-child(even) td:nth-child(even).highlight {
+    background-color: rgba(202, 187, 172, 0.7) !important;
+}
+
+.coordinate {
+    font-size: 2.5vh;
+    font-weight: 600;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.label {
+    position: absolute;
+    margin: 0.33em;
+    z-index: 1;
+}
+
+/* Column labels (1-8) */
+.column-label {
+    top: 0; /* Position above the top row */
+    left: 0;
+}
+
+.column-label-flipped {
+    bottom: 0;
+    right: 0;
+}
+
+/* Row labels (a-h) */
+.row-label {
+    bottom: 0; /* Position below the bottom row */
+    right: 0;
+}
+
+.row-label-flipped {
+    top: 0; /* Position below the bottom row */
+    left: 0;
+}
+
+.chess-piece {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
+}
+
+.flipped-perspective {
+    transform: rotate(180deg);
+}
+
+.hidden {
+    display: none !important;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.correct {
+    color: rgb(30, 236, 30);
+    font-weight: bold;
+}
+
+.correct-square {
+    background-color: rgb(30, 236, 30) !important;
+}
+
+.correct-border {
+    border: solid 5px rgb(30, 236, 30) !important;
+}
+
+.incorrect {
+    color: rgb(228, 30, 30);
+    font-weight: bold;
+}
+
+.incorrect-square {
+    background-color: rgb(228, 30, 30) !important;
+}
+
+.incorrect-border {
+    border: solid 5px rgb(228, 30, 30) !important;
+}
+
+.bold {
+    font-weight: bold;
+}
